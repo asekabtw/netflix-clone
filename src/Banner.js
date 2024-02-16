@@ -2,12 +2,16 @@ import React from "react";
 import "./Banner.css";
 
 function Banner() {
+  function truncate(string, n) {
+    return string?.length > n ? string.substr(0, n - 1) + "..." : string;
+  }
+
   return (
     <header
       className="banner"
       style={{
         backgroundSize: "cover",
-        backgroundImage: `url("https://whatchareading.com/wp-content/uploads/2015/04/Netflix-Marvels-Daredevil-Banner.jpg")`,
+        backgroundImage: `url("https://wallpapers.com/images/hd/plain-black-background-02fh7564l8qq4m6d.jpg")`,
         backgroundPosition: "center center",
       }}
     >
@@ -17,7 +21,12 @@ function Banner() {
           <button className="banner__button">Play</button>
           <button className="banner__button">My List</button>
         </div>
-        <h1 className="banner__description">This is a test description</h1>
+        <h1 className="banner__description">
+          {truncate(
+            `This is a test descriptionThis is a test description This is a testdescription This is a test description This is a test description Thisis a test description This is a test description This is a testdescription This is a test description This is a test description Thisis a test description This is a test description This is a test description`,
+            150
+          )}
+        </h1>
       </div>
 
       <div className="banner--fadeBottom" />
