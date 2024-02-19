@@ -1,9 +1,28 @@
+import React, { useEffect, useState } from "react";
+import axios from "./axios";
 import "./Row.css";
 
-import React from "react";
+function Row({ title, fetchUrl, isLageRow = false }) {
+  const [movies, setMovies] = useState([]);
 
-function Row() {
-  return <div className="row"></div>;
+  useEffect(() => {
+    async function fetchData() {
+      const request = await axios.get(fetchUrl);
+      setMovies(request.data.results);
+
+      return request;
+    }
+
+    fetchData();
+  }, [fetchUrl]);
+
+  console.log(movies);
+
+  return (
+    <div className="row">
+      <h2>{title}</h2>
+    </div>
+  );
 }
 
 export default Row;
