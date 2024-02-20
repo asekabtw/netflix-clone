@@ -5,6 +5,8 @@ import "./Row.css";
 function Row({ title, fetchUrl, isLageRow = false }) {
   const [movies, setMovies] = useState([]);
 
+  const base_url = "https://image.tmdb.org/t/p/original/";
+
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(fetchUrl);
@@ -21,6 +23,16 @@ function Row({ title, fetchUrl, isLageRow = false }) {
   return (
     <div className="row">
       <h2>{title}</h2>
+      {movies.map((movie) => {
+        return (
+          <img
+            src={`${base_url}${
+              isLageRow ? movie.poster_path : movie.backdrop_path
+            }`}
+            alt={movie.name}
+          />
+        );
+      })}
     </div>
   );
 }
