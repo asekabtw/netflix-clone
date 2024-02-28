@@ -59,9 +59,40 @@
 .loginScreen__body {
   position: absolute;
   top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
   margin: 0 auto;
   text-align: center;
   z-index: 1;
   color: #fff;
   padding: 20px;
+}
+
+.loginScreen__input {
+  margin: 20px;
+}
+
+.loginScreen__input > form {
+  display: flex;
+  justify-content: center;
+}
+
+.loginScreen__input > form > input {
+  padding: 10px;
+  outline-width: 0;
+  height: 30px;
+  width: 30%;
+  border: none;
+  max-width: 600px;
+}
+
+.loginScreen__getStarted {
+  padding: 16px 20px;
+  height: 50px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #e50914;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
 }
